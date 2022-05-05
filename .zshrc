@@ -38,6 +38,7 @@ zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-aliases"
 # zsh_add_file "zsh-prompt"
 zsh_add_file "zsh-prompt-greg"
+zsh_add_file "zsh-hooks"
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
@@ -64,7 +65,7 @@ zsh_add_plugin "hlissner/zsh-autopair"
 
 # FZF 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
+# [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
 # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 compinit
 
@@ -76,5 +77,8 @@ autoload edit-command-line; zle -N edit-command-line
 # Environment variables set everywhere
 export EDITOR="nvim"
 
+# add private key to ssh-agent to enable ssh to github
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/github_id_rsa
 
 
