@@ -13,7 +13,7 @@ zle_highlight=('paste:none')
 unsetopt BEEP
 
 
-# completions
+# -------------------------- completions ------------------------
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 # zstyle ':completion::complete:lsof:*' menu yes select
@@ -26,7 +26,14 @@ autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-# Colors
+# FZF 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
+# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+compinit
+
+
+# ------------------------ Colors -------------------------
 autoload -Uz colors && colors
 
 # Useful Functions
@@ -39,6 +46,7 @@ zsh_add_file "zsh-aliases"
 # zsh_add_file "zsh-prompt"
 zsh_add_file "zsh-prompt-greg"
 zsh_add_file "zsh-hooks"
+zsh_add_file "zsh-bindkey"
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
@@ -63,11 +71,7 @@ zsh_add_plugin "hlissner/zsh-autopair"
 # bindkey -r "^u"
 # bindkey -r "^d"
 
-# FZF 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
-# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
-compinit
+
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -80,5 +84,10 @@ export EDITOR="nvim"
 # add private key to ssh-agent to enable ssh to github
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/github_id_rsa
+
+
+#TODO: automatically sync .zshrc here and the login .zshrc
+
+
 
 
