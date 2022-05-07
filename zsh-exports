@@ -3,8 +3,6 @@
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-# added nvim06 to PATH
-export PATH="/usr/local/bin/nvim/bin:$PATH"
 # add link file folder to PATH
 export PATH="/home/etg/.local/bin:$PATH"
 
@@ -24,8 +22,8 @@ export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 
-# RUST
-. "$HOME/.cargo/env"
+# # RUST
+# . "$HOME/.cargo/env"
 
 
 
